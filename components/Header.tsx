@@ -14,7 +14,7 @@ export function Header() {
     { label: "About Me", href: "/aboutme" },
     { label: "Work", href: "/work" },
     { label: "Blog", href: "/blog" },
-    { label: "Contact Me", href: "/contact" },
+   { label: "Contact Me", href: "#contact" }  ,
   ];
 
   return (
