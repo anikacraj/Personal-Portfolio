@@ -1,55 +1,108 @@
-'use client';
+'use client'
 
-import { motion } from 'framer-motion';
+import { motion } from 'framer-motion'
+import { Mail, MapPin, Phone, User } from 'lucide-react'
+import Link from 'next/link'
 
 export function ContactSection() {
   return (
-    <section className="relative py-16 bg-gray-50 dark:bg-gray-900" id="contact">
+    <section
+      id="contact"
+      className="relative py-20 bg-gradient-to-br from-blue-50 to-white dark:from-gray-900 dark:to-gray-950"
+    >
       <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-10 px-4">
         {/* Left Side: Personal Info */}
         <motion.div
-          initial={{ y: -100, opacity: 0 }}
+          initial={{ y: -50, opacity: 0 }}
           whileInView={{ y: 0, opacity: 1 }}
-          transition={{ duration: 0.8 }}
+          transition={{ duration: 0.7 }}
           viewport={{ once: true }}
-          className="space-y-4"
+          className="space-y-5"
         >
-          <h2 className="text-3xl font-bold text-blue-600">Get in Touch</h2>
-          <p className="text-lg">Anik Chowdhury</p>
-          <p className="text-gray-700 dark:text-gray-300">Web Developer</p>
-          <p className="text-gray-700 dark:text-gray-300">Email: anik@example.com</p>
-          <p className="text-gray-700 dark:text-gray-300">WhatsApp: +8801234567890</p>
-          <p className="text-gray-700 dark:text-gray-300">Address: Dhaka, Bangladesh</p>
+          <h2 className="text-4xl font-bold text-blue-700 dark:text-blue-400 mb-4">
+            Get in Touch
+          </h2>
+          <div className="space-y-2 text-gray-800 dark:text-gray-300">
+            <p className="flex items-center gap-2 text-lg">
+              <User className="w-5 h-5 text-blue-600 dark:text-blue-400" /> Anik Chowdhury
+            </p>
+            <p className="flex items-center gap-2">
+              <Mail className="w-5 h-5 text-blue-600 dark:text-blue-400" />
+              anikchowdhuryraj.neub@gmail.com
+            </p>
+            <p className="flex items-center gap-2">
+              <Phone className="w-5 h-5 text-blue-600 dark:text-blue-400" /> +8801889449660
+            </p>
+            <p className="flex items-center gap-2">
+              <MapPin className="w-5 h-5 text-blue-600 dark:text-blue-400" /> Sylhet, Bangladesh
+            </p>
+          </div>
         </motion.div>
 
         {/* Right Side: Contact Form */}
         <motion.form
-          initial={{ y: 100, opacity: 0 }}
+          initial={{ y: 50, opacity: 0 }}
           whileInView={{ y: 0, opacity: 1 }}
-          transition={{ duration: 0.8 }}
+          transition={{ duration: 0.7 }}
           viewport={{ once: true }}
-          className="space-y-4 bg-white dark:bg-gray-800 p-6 rounded-xl shadow-lg"
+          action="https://formsubmit.co/anikchowdhuryraj.neub@gmail.com"
+          method="POST"
+          className="space-y-5 bg-white dark:bg-gray-800 p-6 sm:p-8 rounded-2xl shadow-xl border dark:border-gray-700"
         >
+          {/* Hidden fields for FormSubmit */}
+          <input type="hidden" name="_captcha" value="false" />
+          <input type="hidden" name="_next" value="https://anik-chy.vercel.app/thank-you" />
+
           <div>
-            <label className="block text-sm font-medium mb-1">Your Name</label>
-            <input type="text" className="w-full p-2 border rounded dark:bg-gray-700" />
+            <label className="block text-sm font-medium mb-1 text-gray-700 dark:text-gray-300">
+              Your Name
+            </label>
+            <input
+              name="name"
+              type="text"
+              placeholder="Enter your name"
+              required
+              className="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-gray-50 dark:bg-gray-700 text-gray-800 dark:text-white focus:outline-none focus:ring-2 focus:ring-blue-500"
+            />
           </div>
+
           <div>
-            <label className="block text-sm font-medium mb-1">Email Address</label>
-            <input type="email" className="w-full p-2 border rounded dark:bg-gray-700" />
+            <label className="block text-sm font-medium mb-1 text-gray-700 dark:text-gray-300">
+              Email Address
+            </label>
+            <input
+              name="email"
+              type="email"
+              placeholder="example@mail.com"
+              required
+              className="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-gray-50 dark:bg-gray-700 text-gray-800 dark:text-white focus:outline-none focus:ring-2 focus:ring-blue-500"
+            />
           </div>
+
           <div>
-            <label className="block text-sm font-medium mb-1">Message</label>
-            <textarea className="w-full p-2 border rounded dark:bg-gray-700" rows={5}></textarea>
+            <label className="block text-sm font-medium mb-1 text-gray-700 dark:text-gray-300">
+              Message
+            </label>
+            <textarea
+              name="message"
+              rows={5}
+              required
+              placeholder="Write your message..."
+              className="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-gray-50 dark:bg-gray-700 text-gray-800 dark:text-white focus:outline-none focus:ring-2 focus:ring-blue-500 resize-none"
+            ></textarea>
           </div>
+
+        <Link href="\thank-you"> 
+        
           <button
             type="submit"
-            className="px-6 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded transition"
+            className="w-full sm:w-auto px-6 py-2.5 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-lg transition duration-200"
           >
             Send Message
           </button>
+        </Link>
         </motion.form>
       </div>
     </section>
-  );
+  )
 }
