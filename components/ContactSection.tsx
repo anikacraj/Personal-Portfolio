@@ -2,7 +2,6 @@
 
 import { motion } from 'framer-motion'
 import { Mail, MapPin, Phone, User } from 'lucide-react'
-import Link from 'next/link'
 
 export function ContactSection() {
   return (
@@ -51,7 +50,16 @@ export function ContactSection() {
         >
           {/* Hidden fields for FormSubmit */}
           <input type="hidden" name="_captcha" value="false" />
-          <input type="hidden" name="_next" value="https://anik-chy.vercel.app/thank-you" />
+          <input
+            type="hidden"
+            name="_next"
+            value="https://anik-chy.vercel.app/thank-you?message=success"
+          />
+          <input
+            type="hidden"
+            name="_subject"
+            value="New message from your portfolio contact form"
+          />
 
           <div>
             <label className="block text-sm font-medium mb-1 text-gray-700 dark:text-gray-300">
@@ -62,6 +70,7 @@ export function ContactSection() {
               type="text"
               placeholder="Enter your name"
               required
+              aria-label="Your Name"
               className="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-gray-50 dark:bg-gray-700 text-gray-800 dark:text-white focus:outline-none focus:ring-2 focus:ring-blue-500"
             />
           </div>
@@ -75,6 +84,7 @@ export function ContactSection() {
               type="email"
               placeholder="example@mail.com"
               required
+              aria-label="Email Address"
               className="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-gray-50 dark:bg-gray-700 text-gray-800 dark:text-white focus:outline-none focus:ring-2 focus:ring-blue-500"
             />
           </div>
@@ -88,19 +98,17 @@ export function ContactSection() {
               rows={5}
               required
               placeholder="Write your message..."
+              aria-label="Message"
               className="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-gray-50 dark:bg-gray-700 text-gray-800 dark:text-white focus:outline-none focus:ring-2 focus:ring-blue-500 resize-none"
             ></textarea>
           </div>
 
-        <Link href="\thank-you"> 
-        
           <button
             type="submit"
             className="w-full sm:w-auto px-6 py-2.5 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-lg transition duration-200"
           >
             Send Message
           </button>
-        </Link>
         </motion.form>
       </div>
     </section>
