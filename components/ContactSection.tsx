@@ -61,6 +61,7 @@ export function ContactSection() {
             value="New message from your portfolio contact form"
           />
 
+          {/* Name */}
           <div>
             <label className="block text-sm font-medium mb-1 text-gray-700 dark:text-gray-300">
               Your Name
@@ -75,6 +76,7 @@ export function ContactSection() {
             />
           </div>
 
+          {/* Email */}
           <div>
             <label className="block text-sm font-medium mb-1 text-gray-700 dark:text-gray-300">
               Email Address
@@ -89,6 +91,7 @@ export function ContactSection() {
             />
           </div>
 
+          {/* Message */}
           <div>
             <label className="block text-sm font-medium mb-1 text-gray-700 dark:text-gray-300">
               Message
@@ -103,6 +106,7 @@ export function ContactSection() {
             ></textarea>
           </div>
 
+          {/* Submit Button */}
           <button
             type="submit"
             className="w-full sm:w-auto px-6 py-2.5 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-lg transition duration-200"
